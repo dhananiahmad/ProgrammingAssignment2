@@ -25,7 +25,7 @@ makeCacheMatrix <- function(x = matrix()) {
         get <- function() x
         
         ##cache the given argument
-        setinverse <- function(solve) m <<- mean
+        setinverse <- function(solve) m <<- inverse
         
         ##Get the cache Value
         getinverse <- function() m
@@ -55,7 +55,7 @@ cacheSolve <- function(x, ...) {
         
         ##Otherwise get the matrix, inverse it and return and set Cache
         data <- x$get()
-        m <- mean(data, ...)
+        m <- solve(data, ...)
         x$setinverse(m)
         m
 }
